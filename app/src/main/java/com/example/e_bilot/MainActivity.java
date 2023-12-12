@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             int itemId = item.getItemId();
 
             if (itemId == HOME_ID){
-                //replaceFragment(new MovieDetailFragment());
+                replaceFragment(new MovieDetailFragment());
             }
             else if(itemId == SAVED_MOVIES_ID){
 
