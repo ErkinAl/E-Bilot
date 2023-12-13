@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SeatChoosingFragment"
+    android:background="@color/red">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="30dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/appLogoSeatChoosing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="E-Bilot"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:id="@+id/sceneTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scene"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginTop="30dp"
+            />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/A"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginRight="15dp"/>
+
+                <ImageView
+                    android:id="@+id/A1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/A2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/A3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/A4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/A5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/A6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/A7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/A8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/A9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="B"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginRight="15dp"/>
+
+                <ImageView
+                    android:id="@+id/B1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/B2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/B3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/B4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/B5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/B6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/B7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/B8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/B9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/C"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="C"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginRight="15dp"/>
+
+                <ImageView
+                    android:id="@+id/C1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/C2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/C3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/C4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/C5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/C6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/C7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/C8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/C9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/D"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="D"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginRight="15dp"/>
+
+                <ImageView
+                    android:id="@+id/D1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/D2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/D3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/D4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/D5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/D6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/D7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/D8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/D9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/E"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="E"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginRight="15dp"/>
+
+                <ImageView
+                    android:id="@+id/E1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/E2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/E3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/E4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/E5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/E6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/E7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/E8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/E9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/F"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="F"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginRight="15dp"/>
+
+                <ImageView
+                    android:id="@+id/F1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/F2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/F3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/F4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/F5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/F6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/F7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/F8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/F9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/G"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="G"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginRight="15dp"/>
+
+                <ImageView
+                    android:id="@+id/G1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/G2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/G3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/G4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/G5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/G6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/G7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/G8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/G9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/H"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="H"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginRight="15dp"/>
+
+                <ImageView
+                    android:id="@+id/H1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/H2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/H3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/H4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/H5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/H6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/H7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/H8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/H9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/I"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginRight="15dp"/>
+
+                <ImageView
+                    android:id="@+id/I1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/I2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/I3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/I4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/I5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/I6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/I7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/I8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/I9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/J"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="J"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginRight="15dp"/>
+
+                <ImageView
+                    android:id="@+id/J1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/J2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/J3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/J4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/J5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/J6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/J7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/J8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+                <ImageView
+                    android:id="@+id/J9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/baseline_event_seat_reserved_24" />
+
+
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:layout_marginRight="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:text="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:text="2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:text="3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:text="4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="textStart"
+                    android:paddingLeft="5dp"
+                    android:text="5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:text="6" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:text="7" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:text="8" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:text="9" />
+
+
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select seat or seats whatever you want."
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <EditText
+            android:id="@+id/seatInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="A2"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <Button
+            android:id="@+id/seatChoosingButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/white"
+            android:text="Next"
+            android:textColor="@color/black"
+            app:cornerRadius="10sp" />
+
+
+    </LinearLayout>
+
+</FrameLayout>

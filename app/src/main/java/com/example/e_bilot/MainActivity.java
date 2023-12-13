@@ -6,9 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import com.example.e_bilot.R;
+
 import com.example.e_bilot.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new MovieDetailFragment());
             }
             else if(itemId == SAVED_MOVIES_ID){
-
+                replaceFragment(new SeatChoosingFragment());
             }
             else if(itemId == MOVIES_ID){
-
+                replaceFragment(new PaymentFragment());
             }
             else if(itemId == SETTINGS_ID){
 
