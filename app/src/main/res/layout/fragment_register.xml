@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Register">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -27,7 +27,10 @@
             android:layout_height="0dp"
             android:layout_marginStart="26dp"
             android:layout_marginTop="187dp"
+            android:backgroundTint="#403F3F"
             android:text="Login"
+            app:circularflow_radiusInDP="0dp"
+            app:cornerRadius="0dp"
             app:layout_constraintBottom_toTopOf="@+id/registerEmail"
             app:layout_constraintEnd_toStartOf="@+id/buttonRegister2"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +41,10 @@
             android:layout_width="0dp"
             android:layout_height="78dp"
             android:layout_marginEnd="51dp"
+            android:backgroundTint="#850909"
             android:text="Register"
+            app:circularflow_radiusInDP="0dp"
+            app:cornerRadius="0dp"
             app:layout_constraintBottom_toTopOf="@+id/registerEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonLogin2" />
@@ -77,7 +83,10 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
+            android:backgroundTint="#FFFFFF"
             android:text="Register"
+            android:textColor="#000000"
+            app:cornerRadius="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,8 +110,9 @@
             android:inputType="textPersonName"
             android:text="Surname"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/registerSwitchGender"
             app:layout_constraintStart_toStartOf="@+id/registerName"
-            app:layout_constraintTop_toBottomOf="@+id/registerEmail"
+            app:layout_constraintTop_toBottomOf="@+id/registerPassword"
             app:layout_constraintVertical_bias="1.0" />
 
         <EditText
