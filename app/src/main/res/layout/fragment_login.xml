@@ -19,66 +19,66 @@
         app:layout_constraintEnd_toEndOf="@+id/buttonLogin"
         app:layout_constraintStart_toEndOf="@+id/buttonLogin">
 
+
         <Button
             android:id="@+id/buttonRegister"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="243dp"
-            android:layout_marginEnd="38dp"
-            android:layout_marginBottom="135dp"
+            android:layout_marginTop="323dp"
+            android:layout_marginEnd="39dp"
+
+            android:layout_marginBottom="134dp"
+            android:backgroundTint="#403F3F"
             android:text="Register"
             app:cornerRadius="0dp"
             app:layout_constraintBottom_toTopOf="@+id/buttonLoginConfirm"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonLogin"
-            app:layout_constraintTop_toTopOf="parent"
-
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/buttonLogin"
             android:layout_width="0dp"
             android:layout_height="78dp"
             android:layout_marginStart="38dp"
-            android:layout_marginEnd="1dp"
+            android:backgroundTint="#850909"
             android:text="Login"
             app:cornerRadius="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/loginEmail"
             app:layout_constraintEnd_toStartOf="@+id/buttonRegister"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="243dp"
-            app:layout_constraintBottom_toBottomOf="re"
-            />
-
+            app:layout_constraintTop_toTopOf="@+id/buttonRegister"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/buttonLoginConfirm"
             android:layout_width="328dp"
-            android:layout_height="61dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="129dp"
+            android:backgroundTint="#FFFFFF"
             android:text="Login"
+            android:textColor="#000000"
             app:cornerRadius="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/loginPassword"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/loginPassword"
-            app:layout_constraintTop_toBottomOf="@+id/loginPassword"
-            app:layout_constraintVertical_bias="0.042" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonRegister" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/loginEmail"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="327dp"
             android:layout_height="67dp"
-            android:layout_marginBottom="1dp"
             android:hint="Email"
-            app:layout_constraintBottom_toTopOf="@+id/loginPassword"
-            app:layout_constraintEnd_toEndOf="@+id/buttonRegister"
-            app:layout_constraintStart_toStartOf="@+id/buttonLogin"
-            app:layout_constraintTop_toBottomOf="@+id/buttonLogin">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonRegister">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/loginEmail_editText"
                 android:layout_width="327dp"
                 android:layout_height="67dp"
+                android:textColor="#FFFCFC"
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,12 +87,11 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="327dp"
             android:layout_height="67dp"
-            android:layout_marginTop="68dp"
             android:hint="Password"
-            app:layout_constraintEnd_toEndOf="@+id/loginEmail"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/buttonLogin"
-            app:layout_constraintTop_toBottomOf="@+id/buttonLogin">
+            app:layout_constraintBottom_toTopOf="@+id/buttonLoginConfirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginEmail">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/loginPassword_editText"
