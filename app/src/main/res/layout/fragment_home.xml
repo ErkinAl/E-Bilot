@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/home_bg"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <TextView
+            android:id="@+id/textRecommendedMovies"
+            android:layout_width="212dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="66dp"
+            android:layout_marginBottom="288dp"
+            android:text="Recommended movies to watch:"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/buttonAboutUs"
+            android:layout_width="38dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_info_24"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <ImageView
+            android:id="@+id/recommendedMovie2"
+            android:layout_width="54dp"
+            android:layout_height="52dp"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonRecommended3"
+            app:layout_constraintStart_toStartOf="@+id/buttonRecommended3"
+            app:layout_constraintTop_toBottomOf="@+id/buttonRecommended1"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/buttonRecommended1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="452dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="11dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRecommended3"
+            app:layout_constraintEnd_toStartOf="@+id/buttonRecommended2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/recommendedMovie4"
+            android:layout_width="54dp"
+            android:layout_height="52dp"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonRecommended4"
+            app:layout_constraintStart_toStartOf="@+id/buttonRecommended4"
+            app:layout_constraintTop_toTopOf="@+id/buttonRecommended4"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/buttonRecommended4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="98dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttonRecommended3"
+            app:layout_constraintTop_toBottomOf="@+id/buttonRecommended2" />
+
+        <Button
+            android:id="@+id/buttonRecommended2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="452dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="11dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRecommended4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttonRecommended1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/recommendedMovie3"
+            android:layout_width="54dp"
+            android:layout_height="52dp"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonRecommended2"
+            app:layout_constraintStart_toStartOf="@+id/buttonRecommended2"
+            app:layout_constraintTop_toTopOf="@+id/buttonRecommended2"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/recommendedMovie1"
+            android:layout_width="54dp"
+            android:layout_height="52dp"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonRecommended1"
+            app:layout_constraintStart_toStartOf="@+id/buttonRecommended1"
+            app:layout_constraintTop_toTopOf="@+id/buttonRecommended1"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/buttonRecommended3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="98dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonRecommended4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonRecommended1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
