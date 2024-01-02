@@ -18,8 +18,6 @@ public class MovieDetailFragment extends Fragment {
 
     public MovieDetailFragment() {
         // Required empty public constructor
-        DataGetter getter = new DataGetter();
-        getter.getMovieById("movies","1");
     }
 
     public static MovieDetailFragment newInstance(Movie movie) {
@@ -43,19 +41,33 @@ public class MovieDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_movie_detail, container, false);
 
-        TextView movieName = view.findViewById(R.id.movieName);
-        TextView genres = view.findViewById(R.id.genres);
-        TextView imdbScore = view.findViewById(R.id.rateOfTheMovie);
-        TextView description = view.findViewById(R.id.movieDescription);
-        ImageView banner = view.findViewById(R.id.movieBanner);
+        MovieGetter getter = new MovieGetter();
+        getter.getMovieById("movies","2", new MovieGetter.MovieGetterCallback(){
 
-        if (movie != null){
-            movieName.setText(movie.getName());
-            genres.setText(movie.getGenres());
-            imdbScore.setText(String.valueOf(movie.getImdbScore()));
-            description.setText(movie.getDescription());
-            //Glide.with(requireContext()).load(movie.getBannerPath()).into(banner);
-        }
+            @Override
+            public View onMovieReceived(Movie movie) {
+                TextView movieName = view.findViewById(R.id.movieName);
+                TextView genres = view.findViewById(R.id.genres);
+                TextView imdbScore = view.findViewById(R.id.rateOfTheMovie);
+                TextView description = view.findViewById(R.id.movieDescription);
+                ImageView banner = view.findViewById(R.id.movieBanner);
+
+                movieName.setText(movie.getName());
+                genres.setText(movie.getGenres());
+                imdbScore.setText(String.valueOf(movie.getImdbScore()));
+                description.setText(movie.getDescription());
+                //banner.setImageDrawable(movie.getBannerPath());
+                return view;
+
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                Log.d("MovieGetter", errorMessage);
+            }
+        });
+
+
 
         return view;
     }
