@@ -13,6 +13,10 @@ public class Movie implements Parcelable {
     private String description;
     private String bannerPath;
 
+    public Movie(){
+
+    }
+
     public Movie(int movieId, String name, String genres, float imdbScore, String description, String bannerPath) {
         this.movieId = movieId;
         this.name = name;
@@ -29,6 +33,12 @@ public class Movie implements Parcelable {
         imdbScore = in.readFloat();
         description = in.readString();
         bannerPath = in.readString();
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return this.movieId + " - " + this.name + "named movie's imdb score is:" + this.imdbScore;
     }
 
     public static final Creator<Movie> CREATOR = new Creator<Movie>() {
