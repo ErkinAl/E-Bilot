@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "950223553096",
+    "project_id": "e-bilot",
+    "storage_bucket": "e-bilot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:950223553096:android:2bed02727382cf22a8ce7d",
+        "android_client_info": {
+          "package_name": "com.example.e_bilot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzcRFEGGo7WqSsL_2yvep6tSg1Kfz6kDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

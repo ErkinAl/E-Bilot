@@ -6,13 +6,20 @@
     android:background="@color/red"
     tools:context=".MovieDetailFragment">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/general_background"
+        android:scaleType="centerCrop"/>
+
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/movieBanner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@mipmap/lotr"
@@ -28,56 +35,54 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/movieName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="The Lord of the Rings"
                 android:textColor="@color/white"
-                android:textSize="34sp"
+                android:textSize="24sp"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/genres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="14sp"
                 android:textColor="@color/white"
                 android:text="Fantasy, Adventure"
-                android:textStyle="italic"
-                android:layout_marginTop="5dp"/>
+                android:textStyle="italic" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/starIcon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
                     android:src="@drawable/baseline_star_rate_24" />
 
                 <TextView
                     android:id="@+id/rateOfTheMovie"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:textColor="@color/white"
                     android:text="8.6" />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/summary"
+                android:id="@+id/movieDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textColor="@color/white"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
                 android:layout_marginTop="5dp"/>
 
             <Button
-                android:id="@+id/buyButton"
+                android:id="@+id/buyButtonMovieDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Button"
