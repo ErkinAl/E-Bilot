@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Register">
 
-    <?xml version="1.0" encoding="utf-8"?>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -56,6 +55,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Password"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
             app:layout_constraintHorizontal_bias="0.309"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +70,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="E-mail"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/registerAge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.309"
@@ -98,6 +99,7 @@
             android:layout_height="49dp"
             android:layout_marginStart="4dp"
             android:text="Male/Female"
+            android:textColor="#FFFFFF"
             app:layout_constraintStart_toEndOf="@+id/registerName"
             app:layout_constraintTop_toBottomOf="@+id/registerPassword" />
 
@@ -109,6 +111,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Surname"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/registerSwitchGender"
             app:layout_constraintStart_toStartOf="@+id/registerName"
@@ -122,6 +125,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/registerSurname"
             app:layout_constraintStart_toStartOf="@+id/registerPassword"
             app:layout_constraintTop_toBottomOf="@+id/registerPassword"
@@ -137,7 +141,8 @@
             android:text="Age"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/registerSurname"
-            app:layout_constraintTop_toBottomOf="@+id/registerEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/registerEmail"
+            android:textColor="#FFFFFF" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
