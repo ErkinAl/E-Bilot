@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    android:id="@+id/frame_layout_home">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,23 +18,25 @@
             android:layout_height="wrap_content"
             android:src="@drawable/home_bg"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop"/>
 
         <TextView
             android:id="@+id/textRecommendedMovies"
             android:layout_width="212dp"
             android:layout_height="24dp"
-            android:layout_marginStart="66dp"
-            android:layout_marginBottom="288dp"
+            android:layout_marginBottom="8dp"
             android:text="Recommended movies to watch:"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRecommended1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.201"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
             android:id="@+id/buttonAboutUs"
-            android:layout_width="38dp"
-            android:layout_height="35dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,8 +58,8 @@
 
         <Button
             android:id="@+id/buttonRecommended1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="150dp"
+            android:layout_height="85dp"
             android:layout_marginStart="64dp"
             android:layout_marginTop="452dp"
             android:layout_marginEnd="31dp"
@@ -81,8 +84,8 @@
 
         <Button
             android:id="@+id/buttonRecommended4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="150dp"
+            android:layout_height="85dp"
             android:layout_marginEnd="64dp"
             android:layout_marginBottom="98dp"
             app:cornerRadius="0dp"
@@ -93,8 +96,8 @@
 
         <Button
             android:id="@+id/buttonRecommended2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="150dp"
+            android:layout_height="85dp"
             android:layout_marginTop="452dp"
             android:layout_marginEnd="64dp"
             android:layout_marginBottom="11dp"
@@ -130,8 +133,8 @@
 
         <Button
             android:id="@+id/buttonRecommended3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="150dp"
+            android:layout_height="85dp"
             android:layout_marginStart="64dp"
             android:layout_marginEnd="31dp"
             android:layout_marginBottom="98dp"
