@@ -1,23 +1,27 @@
 package com.example.e_bilot;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.AsyncListUtil;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.*;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class DataGetter {
+public class MovieGetter {
     FirebaseFirestore database;
-    public DataGetter() {
+    public MovieGetter() {
         database = FirebaseFirestore.getInstance();
     }
 
-    public void getMovieById(String document, String id){
+    public interface MovieGetterCallback{
+        View onMovieReceived(Movie movie);
+        void onFailure(String errorMessage);
+    }
+
+    public void getMovieById(String document, String id, MovieGetterCallback callback){
         DocumentReference documentReference = database.collection(document).document(id);
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -26,10 +30,13 @@ public class DataGetter {
                     DocumentSnapshot snapshot = task.getResult();
                     if (snapshot.exists()){
                         Movie movie = snapshot.toObject(Movie.class);
-                        Log.d("DataGetter", movie.toString());
+                        Log.d("MovieGetter", movie.toString());
+                        callback.onMovieReceived(movie);
                     }else{
-                        Log.d("DataGetter", "No data has been returned.");
+                        callback.onFailure("No data has been returned.");
                     }
+                } else{
+                    callback.onFailure(task.getException().getMessage());
                 }
             }
         });

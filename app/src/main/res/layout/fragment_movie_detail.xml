@@ -38,7 +38,6 @@
                 android:id="@+id/movieName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="The Lord of the Rings"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold"/>
@@ -49,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:textColor="@color/white"
-                android:text="Fantasy, Adventure"
                 android:textStyle="italic" />
 
             <LinearLayout
@@ -68,8 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="14sp"
-                    android:textColor="@color/white"
-                    android:text="8.6" />
+                    android:textColor="@color/white" />
             </LinearLayout>
 
             <TextView
@@ -78,14 +75,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
                 android:textColor="@color/white"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
                 android:layout_marginTop="5dp"/>
 
             <Button
                 android:id="@+id/buyButtonMovieDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:text="Buy"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/white"
                 android:textColor="@color/black"/>
