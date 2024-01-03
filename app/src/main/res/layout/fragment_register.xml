@@ -20,7 +20,7 @@
 
         <Button
             android:id="@+id/buttonRegister2"
-            android:layout_width="0dp"
+            android:layout_width="165dp"
             android:layout_height="50dp"
             android:layout_marginEnd="77dp"
             android:backgroundTint="#850909"
@@ -33,9 +33,9 @@
 
         <Button
             android:id="@+id/buttonLogin2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="34dp"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="115dp"
             android:backgroundTint="#403F3F"
             android:text="Login"
