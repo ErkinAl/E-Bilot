@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/red"
     tools:context=".MovieDetailFragment">
 
@@ -85,7 +86,7 @@
                 android:backgroundTint="@color/white"
                 android:textColor="@color/black"/>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -95,18 +96,20 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/baseline_bookmark_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginTop="5dp"/>
 
-                <TextView
+                <ImageView
                     android:id="@+id/appLogo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:text="E-Bilot"
-                    android:gravity="center|end"/>
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:gravity="center|end"
+                    android:src="@drawable/ebilot_logo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 

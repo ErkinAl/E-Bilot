@@ -43,7 +43,8 @@ public class MovieDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_movie_detail, container, false);
 
         MovieGetter getter = new MovieGetter();
-        getter.getMovieById("movies","2", new MovieGetter.MovieGetterCallback(){
+
+        getter.getMovieById("movies","4", new MovieGetter.MovieGetterCallback(){
 
             @Override
             public View onMovieReceived(Movie movie) {
@@ -66,7 +67,7 @@ public class MovieDetailFragment extends Fragment {
 
                     @Override
                     public void onFailure(String errorMessage) {
-                        Log.d("MovieGetter", errorMessage);
+                        Log.e("MovieGetter", errorMessage);
                     }
                 });
 
