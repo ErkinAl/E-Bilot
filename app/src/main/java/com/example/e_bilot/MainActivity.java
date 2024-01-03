@@ -40,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new PaymentFragment());
             }
             else if(itemId == SETTINGS_ID){
-
+                replaceFragment(new Login());
             }
             else if(itemId == PROFILE_ID){
-
+                replaceFragment(new HomeFragment());
             }
 
             return true;
