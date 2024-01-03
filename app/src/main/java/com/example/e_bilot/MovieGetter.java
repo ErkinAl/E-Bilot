@@ -1,23 +1,37 @@
 package com.example.e_bilot;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class MovieGetter {
     FirebaseFirestore database;
+    FirebaseStorage storage;
     public MovieGetter() {
         database = FirebaseFirestore.getInstance();
+        storage = FirebaseStorage.getInstance();
     }
 
     public interface MovieGetterCallback{
         View onMovieReceived(Movie movie);
+        void onFailure(String errorMessage);
+    }
+
+    public interface MovieGetterImageCallback{
+        void onImageDownloaded(Bitmap bitmap);
         void onFailure(String errorMessage);
     }
 
@@ -38,6 +52,25 @@ public class MovieGetter {
                 } else{
                     callback.onFailure(task.getException().getMessage());
                 }
+            }
+        });
+    }
+
+
+    public void downloadImage(String path, MovieGetterImageCallback callback){
+        StorageReference ref = storage.getReference(path);
+        ref.getBytes(8*1024*1024).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                //imgView.setImageBitmap(bitmap);
+                callback.onImageDownloaded(bitmap);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.e("MovieGetter", "onFailure: ", e);
+                callback.onFailure(e.getMessage());
             }
         });
     }

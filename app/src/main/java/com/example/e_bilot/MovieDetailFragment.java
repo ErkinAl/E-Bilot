@@ -1,5 +1,6 @@
 package com.example.e_bilot;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -56,7 +57,19 @@ public class MovieDetailFragment extends Fragment {
                 genres.setText(movie.getGenres());
                 imdbScore.setText(String.valueOf(movie.getImdbScore()));
                 description.setText(movie.getDescription());
-                //banner.setImageDrawable(movie.getBannerPath());
+
+                getter.downloadImage(movie.getBannerPath(), new MovieGetter.MovieGetterImageCallback() {
+                    @Override
+                    public void onImageDownloaded(Bitmap bitmap) {
+                        banner.setImageBitmap(bitmap);
+                    }
+
+                    @Override
+                    public void onFailure(String errorMessage) {
+                        Log.d("MovieGetter", errorMessage);
+                    }
+                });
+
                 return view;
 
             }
@@ -66,9 +79,8 @@ public class MovieDetailFragment extends Fragment {
                 Log.d("MovieGetter", errorMessage);
             }
         });
-
-
-
         return view;
     }
+
+
 }
