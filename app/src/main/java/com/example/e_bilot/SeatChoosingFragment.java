@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.Toast;
 
 import java.util.Arrays;
 
@@ -82,20 +83,37 @@ public class SeatChoosingFragment extends Fragment {
                 userInput = view.findViewById(R.id.seatInput);
                 String inputText = userInput.getText().toString();
 
-                PaymentFragment paymentFragment = new PaymentFragment();
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                if (isSelectedSeatValid(inputText,selectedMovie)){
+                    PaymentFragment paymentFragment = new PaymentFragment();
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 
-                Bundle bundleToPass = new Bundle();
-                bundleToPass.putParcelable("movieData",selectedMovie);
-                bundleToPass.putString("selectedSeats", inputText);
-                paymentFragment.setArguments(bundleToPass);
+                    Bundle bundleToPass = new Bundle();
+                    bundleToPass.putParcelable("movieData",selectedMovie);
+                    bundleToPass.putString("selectedSeats", inputText);
+                    paymentFragment.setArguments(bundleToPass);
 
-                transaction.replace(R.id.fragment_seat_choosing, paymentFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                    transaction.replace(R.id.fragment_seat_choosing, paymentFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                } else{
+                    Toast.makeText(getActivity().getApplicationContext(), "Selected seat is already occupied.", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
         return view;
+    }
+
+    private boolean isSelectedSeatValid(String selectedSeats, Movie selectedMovie){
+        String[] occupiedSeats = selectedMovie.getOccupiedSeats().split(",");
+        String[] seats = selectedSeats.split(",");
+        for (String occupiedSeat : occupiedSeats) {
+            for (String selectedSeat : seats) {
+                if (occupiedSeat.equals(selectedSeat)){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
