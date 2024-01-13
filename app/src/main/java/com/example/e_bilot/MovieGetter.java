@@ -105,4 +105,26 @@ public class MovieGetter {
             }
         });
     }
+
+    public void updateOccupiedSeats(String newSeats, int movieId){
+        DocumentReference ref = database.collection("movies").document(String.valueOf(movieId));
+        ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()){
+                        String occupiedSeats = document.getString("occupiedSeats");
+                        String newOccupiedSeats = occupiedSeats + "," + newSeats;
+
+                        ref.update("occupiedSeats", newOccupiedSeats);
+                    } else{
+                        Log.e("MovieGetter", "The document can not updated.");
+                    }
+                } else{
+                    Log.e("MovieGetter", "No such document with id:"+movieId);
+                }
+            }
+        });
+    }
 }
