@@ -3,45 +3,32 @@ package com.example.e_bilot;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SeatChoosingFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.Arrays;
+
 public class SeatChoosingFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Movie selectedMovie;
+    private EditText userInput;
 
     public SeatChoosingFragment() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SeatChoosing.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SeatChoosingFragment newInstance(String param1, String param2) {
+    public static SeatChoosingFragment newInstance(Movie movie) {
         SeatChoosingFragment fragment = new SeatChoosingFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putParcelable("movieData", movie);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,16 +36,66 @@ public class SeatChoosingFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_seat_choosing, container, false);
+        View view = inflater.inflate(R.layout.fragment_seat_choosing, container, false);
+
+        Bundle bundle = getArguments();
+        if (bundle != null){
+            selectedMovie = bundle.getParcelable("movieData");
+        } else {
+            Log.e("SeatChoosingFragment", "Movie data is empty");
+        }
+
+        Log.d("SeatChoosingFragment", selectedMovie.getOccupiedSeats());
+        String[] occupiedSeats = selectedMovie.getOccupiedSeats().split(",");
+        String[] rowNames = new String[]{"A","B","C","D","E","F","G","H"};
+        TableLayout tableLayout = view.findViewById(R.id.seatsTable);
+
+        for (String seat : occupiedSeats) {
+            char row = seat.charAt(0);
+            int column = Integer.parseInt(seat.substring(1));
+
+            int rowIndex = Arrays.asList(rowNames).indexOf(String.valueOf(row));
+            int columnIndex = column - 1;
+
+            if(tableLayout.getChildAt(rowIndex) != null){
+                TableRow rowLayout = (TableRow) tableLayout.getChildAt(rowIndex);
+                View seatView = rowLayout.getChildAt(columnIndex+1);
+
+                if (!(seatView instanceof ImageView)) {
+                    continue;
+                }
+
+                ImageView seatImageView = (ImageView) seatView;
+                seatImageView.setImageResource(R.drawable.baseline_event_seat_reserved_24);
+            }
+        }
+
+        Button nextButton = view.findViewById(R.id.seatChoosingButton);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userInput = view.findViewById(R.id.seatInput);
+                String inputText = userInput.getText().toString();
+
+                PaymentFragment paymentFragment = new PaymentFragment();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+
+                Bundle bundleToPass = new Bundle();
+                bundleToPass.putParcelable("movieData",selectedMovie);
+                bundleToPass.putString("selectedSeats", inputText);
+                paymentFragment.setArguments(bundleToPass);
+
+                transaction.replace(R.id.fragment_seat_choosing, paymentFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        return view;
     }
 }

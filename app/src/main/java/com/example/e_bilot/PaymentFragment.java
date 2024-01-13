@@ -2,46 +2,46 @@ package com.example.e_bilot;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PaymentFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 public class PaymentFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Movie selectedMovie;
+    private String[] selectedSeats;
+    private FirebaseFirestore database = FirebaseFirestore.getInstance();
+    private CollectionReference reservationsReference = database.collection("reservations");
 
     public PaymentFragment() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PaymentFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PaymentFragment newInstance(String param1, String param2) {
+    public static PaymentFragment newInstance(Movie movie) {
         PaymentFragment fragment = new PaymentFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putParcelable("movieData", movie);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,16 +49,86 @@ public class PaymentFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_payment, container, false);
+        View view = inflater.inflate(R.layout.fragment_payment, container, false);
+
+        Bundle bundle = getArguments();
+        if (bundle != null){
+            selectedMovie = bundle.getParcelable("movieData");
+            selectedSeats = bundle.getString("selectedSeats").split(",");
+        } else {
+            Log.e("PaymentFragment", "Movie data is empty");
+        }
+        
+        TextView selectedSeatsEditText = view.findViewById(R.id.selectedSeatsPayment);
+        selectedSeatsEditText.setText(joinSelectedSeats(selectedSeats));
+
+        Button buyButton = view.findViewById(R.id.buyButtonPayment);
+        buyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText ownerName = view.findViewById(R.id.cardOwnerNameSurname);
+                EditText cardNumber = view.findViewById(R.id.cardNumber);
+                EditText expirationMonth = view.findViewById(R.id.expirationMonth);
+                EditText expirationYear = view.findViewById(R.id.expirationYear);
+                EditText cvc = view.findViewById(R.id.cvc);
+
+                Map<String, Object> reservation = new HashMap<>();
+                reservation.put("ownerName", ownerName.getText().toString());
+                reservation.put("cardNumber", Integer.parseInt(cardNumber.getText().toString()));
+                reservation.put("expirationMoth", Integer.parseInt(expirationMonth.getText().toString()));
+                reservation.put("expirationYear", Integer.parseInt(expirationYear.getText().toString()));
+                reservation.put("cvc", Integer.parseInt(cvc.getText().toString()));
+
+                Date currentDate = new Date();
+                Timestamp timestamp = new Timestamp(currentDate);
+                reservation.put("reservationDate", timestamp);
+                reservation.put("movieId", selectedMovie.getMovieId());
+                reservation.put("selectedSeats", bundle.getString("selectedSeats"));
+                reservation.put("userId",1);
+
+                reservationsReference.add(reservation).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d("PaymentFragment", "Reservation successfully added. ID: " + documentReference.getId());
+                        showToastMessage("The ticket successfully reserved.");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e("PaymentFragment", "Reservation can not added", e);
+                        showToastMessage("There is an error.");
+                    }
+                });
+
+                MovieGetter movieGetter = new MovieGetter();
+                movieGetter.updateOccupiedSeats(bundle.getString("selectedSeats"), selectedMovie.getMovieId());
+
+                MovieDetailFragment movieDetailFragment = new MovieDetailFragment();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_payment, movieDetailFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        return view;
+    }
+
+    private String joinSelectedSeats(String[] selectedSeats){
+        String result = "";
+        for (String seat : selectedSeats) {
+            result += seat + "-";
+        }
+        result = result.substring(0, result.lastIndexOf("-"));
+        return result;
+    }
+
+    private void showToastMessage(String message){
+        Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 }

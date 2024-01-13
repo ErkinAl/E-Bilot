@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".PaymentFragment"
-    android:background="@color/red">
+    android:background="@color/red"
+    android:id="@+id/fragment_payment">
 
     <ImageView
         android:layout_width="match_parent"
@@ -33,106 +34,72 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ticketOwnerName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Ticket owner name"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ticketOwnerName_editText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:textSize="14sp"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/cardOwnerNameSurname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Cart Name-Surname"
+            android:layout_marginTop="10dp"
+            android:hint="Card Owner Name Surname"
+            android:textColor="@color/white"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            >
+            android:paddingBottom="20dp"
+            />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cardOwnerNameSurname_editText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:textSize="14sp"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/cardNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Ticket owner name"
+            android:layout_marginTop="10dp"
+            android:hint="Card Number"
+            android:textColor="@color/white"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            >
+            android:paddingBottom="20dp"
+            />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cardNumber_editText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:textSize="14sp"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/expirationDate"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Ticket owner name"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            >
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/expirationDate_editText"
+            <EditText
+                android:id="@+id/expirationMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Expiration Month"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingBottom="20dp"
+                />
+
+            <EditText
+                android:id="@+id/expirationYear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="top"
-                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:hint="Expiration Year"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingBottom="20dp"
                 />
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+        </LinearLayout>
+
+        <EditText
             android:id="@+id/cvc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Ticket owner name"
+            android:layout_marginTop="10dp"
+            android:hint="CVC"
+            android:textColor="@color/white"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cvc_editText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:textSize="14sp"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:paddingBottom="20dp"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -145,10 +112,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="E6 - E7"
             android:textSize="16sp"
             android:textColor="@color/white"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"
+            android:id="@+id/selectedSeatsPayment"
+            />
 
         <Button
             android:id="@+id/buyButtonPayment"

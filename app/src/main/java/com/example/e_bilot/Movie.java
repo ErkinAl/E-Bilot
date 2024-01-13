@@ -13,17 +13,10 @@ public class Movie implements Parcelable {
     private String description;
     private String bannerPath;
 
+    private String occupiedSeats;
+
     public Movie(){
 
-    }
-
-    public Movie(int movieId, String name, String genres, float imdbScore, String description, String bannerPath) {
-        this.movieId = movieId;
-        this.name = name;
-        this.genres = genres;
-        this.imdbScore = imdbScore;
-        this.description = description;
-        this.bannerPath = bannerPath;
     }
 
     public Movie(Parcel in) {
@@ -33,6 +26,7 @@ public class Movie implements Parcelable {
         imdbScore = in.readFloat();
         description = in.readString();
         bannerPath = in.readString();
+        occupiedSeats = in.readString();
     }
 
     @NonNull
@@ -99,6 +93,14 @@ public class Movie implements Parcelable {
 
     public void setBannerPath(String bannerPath) {
         this.bannerPath = bannerPath;
+    }
+
+    public String getOccupiedSeats() {
+        return occupiedSeats;
+    }
+
+    public void setOccupiedSeats(String selectedSeats) {
+        this.occupiedSeats = selectedSeats;
     }
 
     @Override
