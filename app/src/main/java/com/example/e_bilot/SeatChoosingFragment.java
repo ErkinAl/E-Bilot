@@ -83,20 +83,24 @@ public class SeatChoosingFragment extends Fragment {
                 userInput = view.findViewById(R.id.seatInput);
                 String inputText = userInput.getText().toString();
 
-                if (isSelectedSeatValid(inputText,selectedMovie)){
-                    PaymentFragment paymentFragment = new PaymentFragment();
-                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                if (inputText.equals("")){
+                    Toast.makeText(getActivity().getApplicationContext(), "Please select a seat.", Toast.LENGTH_LONG).show();
+                } else {
+                    if (isSelectedSeatValid(inputText,selectedMovie)){
+                        PaymentFragment paymentFragment = new PaymentFragment();
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 
-                    Bundle bundleToPass = new Bundle();
-                    bundleToPass.putParcelable("movieData",selectedMovie);
-                    bundleToPass.putString("selectedSeats", inputText);
-                    paymentFragment.setArguments(bundleToPass);
+                        Bundle bundleToPass = new Bundle();
+                        bundleToPass.putParcelable("movieData",selectedMovie);
+                        bundleToPass.putString("selectedSeats", inputText);
+                        paymentFragment.setArguments(bundleToPass);
 
-                    transaction.replace(R.id.fragment_seat_choosing, paymentFragment);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
-                } else{
-                    Toast.makeText(getActivity().getApplicationContext(), "Selected seat is already occupied.", Toast.LENGTH_LONG).show();
+                        transaction.replace(R.id.fragment_seat_choosing, paymentFragment);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                    } else{
+                        Toast.makeText(getActivity().getApplicationContext(), "Selected seat is already occupied.", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
