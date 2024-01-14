@@ -4,13 +4,11 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,8 +35,6 @@ public class MovieDetailFragment extends Fragment {
         if (getArguments() != null) {
             movie = getArguments().getParcelable(ARG_MOVIE);
         }
-
-
     }
 
     @Override
@@ -48,7 +44,7 @@ public class MovieDetailFragment extends Fragment {
 
         MovieGetter getter = new MovieGetter();
 
-        getter.getMovieById("movies","1", new MovieGetter.MovieGetterCallback(){
+        getter.getMovieById("movies","4", new MovieGetter.MovieGetterCallback(){
 
             @Override
             public View onMovieReceived(Movie movie) {
@@ -72,23 +68,6 @@ public class MovieDetailFragment extends Fragment {
                     @Override
                     public void onFailure(String errorMessage) {
                         Log.e("MovieGetter", errorMessage);
-                    }
-                });
-
-                Button buyButton = view.findViewById(R.id.buyButtonMovieDetail);
-                buyButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        SeatChoosingFragment seatChoosingFragment = new SeatChoosingFragment();
-                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-
-                        Bundle bundle = new Bundle();
-                        bundle.putParcelable("movieData",movie);
-                        seatChoosingFragment.setArguments(bundle);
-
-                        transaction.replace(R.id.fragment_movie_detail, seatChoosingFragment);
-                        transaction.addToBackStack(null);
-                        transaction.commit();
                     }
                 });
 
