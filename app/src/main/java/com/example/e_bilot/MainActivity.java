@@ -34,16 +34,14 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new MovieDetailFragment());
             }
             else if(itemId == SAVED_MOVIES_ID){
-                replaceFragment(new SeatChoosingFragment());
             }
             else if(itemId == MOVIES_ID){
-                replaceFragment(new PaymentFragment());
             }
             else if(itemId == SETTINGS_ID){
                 replaceFragment(new HomeFragment());
             }
             else if(itemId == PROFILE_ID){
-                replaceFragment(new Login());
+                replaceFragment(new ProfileFragment());
             }
 
             return true;
