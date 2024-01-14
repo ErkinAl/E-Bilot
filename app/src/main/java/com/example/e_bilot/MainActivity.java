@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new RegisterFragment());
             }
             else if(itemId == MOVIES_ID){
-
+                replaceFragment(new MovieList());
             }
             else if(itemId == SETTINGS_ID){
 
