@@ -5,12 +5,17 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {
+    private User currentUser;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -31,6 +36,29 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        UserGetter userGetter = new UserGetter();
+        userGetter.getUserById(firebaseAuth.getCurrentUser().getUid(), new UserGetter.UserGetterCallback() {
+            @Override
+            public void onUserReceived(User user) {
+                currentUser = user;
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                Log.e("ProfileFragment", errorMessage);
+            }
+        });
+
+        TextView userNameTextView = view.findViewById(R.id.profileName);
+        TextView userEmailTextView = view.findViewById(R.id.profileEmail);
+
+        userNameTextView.setText(currentUser.getName().toString() + " " + currentUser.getSurname().toString());
+        userEmailTextView.setText(currentUser.getEmail().toString());
+
+
         Button logOutButton = view.findViewById(R.id.logOutButton);
         logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,8 +6,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.e_bilot.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     final int MOVIES_ID = R.id.movies;
     final int SETTINGS_ID = R.id.settings;
     final int PROFILE_ID = R.id.profile;
+
+    private User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +37,38 @@ public class MainActivity extends AppCompatActivity {
             int itemId = item.getItemId();
 
             if (itemId == HOME_ID){
-                replaceFragment(new MovieDetailFragment());
-            }
-            else if(itemId == SAVED_MOVIES_ID){
-                replaceFragment(new LoginFragment());
-            }
-            else if(itemId == MOVIES_ID){
-                replaceFragment(new RegisterFragment());
-            }
-            else if(itemId == SETTINGS_ID){
                 replaceFragment(new HomeFragment());
             }
+            else if(itemId == SAVED_MOVIES_ID){
+                replaceFragment(new RegisterFragment());
+            }
+            else if(itemId == MOVIES_ID){
+
+            }
+            else if(itemId == SETTINGS_ID){
+
+            }
             else if(itemId == PROFILE_ID){
-                replaceFragment(new ProfileFragment());
+                UserGetter userGetter = new UserGetter();
+                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                userGetter.getUserById(firebaseAuth.getCurrentUser().getUid(), new UserGetter.UserGetterCallback() {
+                    @Override
+                    public void onUserReceived(User user) {
+                        currentUser = user;
+                    }
+
+                    @Override
+                    public void onFailure(String errorMessage) {
+                        Log.e("MainActivity", errorMessage);
+                    }
+                });
+
+                if (currentUser == null){
+                    replaceFragment(new LoginFragment());
+                    Toast.makeText(getApplicationContext(), "Please log in.", Toast.LENGTH_LONG).show();
+                } else{
+                    replaceFragment(new ProfileFragment());
+                }
             }
 
             return true;

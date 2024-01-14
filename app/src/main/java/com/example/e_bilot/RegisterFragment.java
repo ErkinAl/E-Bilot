@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -97,6 +98,7 @@ public class RegisterFragment extends Fragment {
                         if (user != null){
                             addUserToFirestore(user.getUid(), emailS, passwordS,nameS,surnameS,ageI,isMaleB);
                             Toast.makeText(getActivity().getApplicationContext(), "Successfully registered.", Toast.LENGTH_SHORT).show();
+                            loginUserFromRegisterFragment(emailS, passwordS);
                         }
                     } else{
                         Log.e("RegisterFragment", "User can not added to firestore. Error:"+task.getException().getMessage());
@@ -125,5 +127,19 @@ public class RegisterFragment extends Fragment {
                 Log.e("RegisterFragment", "User can not added to firestore. Error:"+ e.getMessage());
             }
         });
+    }
+
+    private void loginUserFromRegisterFragment(String email, String password){
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(requireActivity(), task -> {
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                    HomeFragment homeFragment = new HomeFragment();
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+
+                    transaction.replace(R.id.fragment_register, homeFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                });
     }
 }
