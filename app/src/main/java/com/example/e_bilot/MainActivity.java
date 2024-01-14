@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             else if(itemId == PROFILE_ID){
                 UserGetter userGetter = new UserGetter();
                 FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                firebaseAuth.getCurrentUser().getUid();
                 userGetter.getUserById(firebaseAuth.getCurrentUser().getUid(), new UserGetter.UserGetterCallback() {
                     @Override
                     public void onUserReceived(User user) {
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.e("MainActivity", errorMessage);
                     }
                 });
+
 
                 if (currentUser == null){
                     replaceFragment(new LoginFragment());
