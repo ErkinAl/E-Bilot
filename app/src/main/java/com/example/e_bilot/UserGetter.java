@@ -25,6 +25,9 @@ public class UserGetter {
     }
 
     public void getUserById(String id, UserGetter.UserGetterCallback callback){
+        if (id == null){
+            return;
+        }
         database.collection("userInfos").get().addOnCompleteListener(task -> {
             for (QueryDocumentSnapshot document : task.getResult()){
                 if (document.getString("userId").equals(id)){
