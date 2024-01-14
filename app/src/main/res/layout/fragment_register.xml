@@ -3,12 +3,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".RegisterFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:srcCompat="@drawable/general_bg"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/ebilot_logo" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonLogin2"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="0dp"
+            android:backgroundTint="#403F3F"
+            android:text="Login"
+            app:circularflow_radiusInDP="0dp"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/buttonRegister2"
+            android:layout_width="165dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="77dp"
+            android:backgroundTint="#850909"
+            android:text="Register"
+            app:circularflow_radiusInDP="0dp"
+            app:cornerRadius="0dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="262dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/registerEmail"
+            android:layout_width="324dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="3dp"
+            android:hint="E-mail"
+            android:inputType="textPersonName"
+            android:textColorHint="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/registerPassword"
+            android:layout_width="324dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:hint="Password"
+            android:inputType="textPersonName"
+            android:textColorHint="#FFFFFF"
+            />
+
+        <EditText
+            android:id="@+id/registerName"
+            android:layout_width="324dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:textColorHint="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/registerSurname"
+            android:layout_width="324dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:hint="Surname"
+            android:inputType="textPersonName"
+            android:textColorHint="#FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/registerAge"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="50dp"
+                android:hint="Age"
+                android:inputType="number"
+                android:textColorHint="#FFFFFF" />
+
+            <Switch
+                android:id="@+id/registerSwitchGender"
+                android:layout_width="144dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="2dp"
+                android:text="Female/Male"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonRegisterConfirm"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginBottom="190dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="Register"
+        android:textColor="#000000" />
+
+    </LinearLayout>
 
 </FrameLayout>

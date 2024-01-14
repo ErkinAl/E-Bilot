@@ -1,47 +1,55 @@
 package com.example.e_bilot;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RegisterFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class RegisterFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    EditText email;
+    EditText password;
+    EditText name;
+    EditText surname;
+    EditText age;
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    Switch isMale;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private FirebaseFirestore database = FirebaseFirestore.getInstance();
+
+    private CollectionReference userInfosReference = database.collection("userInfos");
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+
 
     public RegisterFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RegisterFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static RegisterFragment newInstance(String param1, String param2) {
         RegisterFragment fragment = new RegisterFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,16 +57,73 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false);
+        View view = inflater.inflate(R.layout.fragment_register, container, false);
+
+        email = view.findViewById(R.id.registerEmail);
+        password = view.findViewById(R.id.registerPassword);
+        name = view.findViewById(R.id.registerName);
+        surname = view.findViewById(R.id.registerSurname);
+        age = view.findViewById(R.id.registerAge);
+        isMale = view.findViewById(R.id.registerSwitchGender);
+
+        Button registerConfirmButton = view.findViewById(R.id.buttonRegisterConfirm);
+
+        registerConfirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String emailString = email.getText().toString();
+                String passwordString = password.getText().toString();
+                String nameString = name.getText().toString();
+                String surnameString = surname.getText().toString();
+                int ageNum = Integer.parseInt(age.getText().toString());
+                Boolean isMaleBoolean = isMale.isChecked();
+
+                performRegistration(emailString, passwordString, nameString, surnameString, ageNum, isMaleBoolean);
+            }
+        });
+        return view;
+    }
+
+    private void performRegistration(String emailS, String passwordS, String nameS, String surnameS, int ageI, boolean isMaleB){
+        firebaseAuth.createUserWithEmailAndPassword(emailS, passwordS)
+                .addOnCompleteListener(requireActivity(), task -> {
+                    if (task.isSuccessful()){
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        if (user != null){
+                            addUserToFirestore(user.getUid(), emailS, passwordS,nameS,surnameS,ageI,isMaleB);
+                            Toast.makeText(getActivity().getApplicationContext(), "Successfully registered.", Toast.LENGTH_SHORT).show();
+                        }
+                    } else{
+                        Log.e("RegisterFragment", "User can not added to firestore. Error:"+task.getException().getMessage());
+                    }
+                });
+    }
+
+    private void addUserToFirestore(String userId, String email, String password, String name, String surname, int age, boolean isMale) {
+        Map<String, Object> user = new HashMap<>();
+        user.put("userId", userId);
+        user.put("email", email);
+        user.put("password", password);
+        user.put("name", name);
+        user.put("surname", surname);
+        user.put("age", age);
+        user.put("isMale", isMale);
+
+        userInfosReference.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Log.d("RegisterFragment", "User added to firestore");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.e("RegisterFragment", "User can not added to firestore. Error:"+ e.getMessage());
+            }
+        });
     }
 }

@@ -34,8 +34,10 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new MovieDetailFragment());
             }
             else if(itemId == SAVED_MOVIES_ID){
+                replaceFragment(new LoginFragment());
             }
             else if(itemId == MOVIES_ID){
+                replaceFragment(new RegisterFragment());
             }
             else if(itemId == SETTINGS_ID){
                 replaceFragment(new HomeFragment());
