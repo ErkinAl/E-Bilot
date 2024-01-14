@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+
                 if (currentUser == null){
                     replaceFragment(new LoginFragment());
                     Toast.makeText(getApplicationContext(), "Please log in.", Toast.LENGTH_LONG).show();
