@@ -12,22 +12,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MovieDetailFragment extends Fragment {
-    private static final String ARG_MOVIE = "argMovie";
 
-    private Movie movie;
+    private static final String ARG_MOVIE_ID = "argMovieId";
+
+    private int movieId;
 
     public MovieDetailFragment() {
         // Required empty public constructor
     }
 
-    public static MovieDetailFragment newInstance(Movie movie) {
+    public static MovieDetailFragment newInstance(int movieId) {
         MovieDetailFragment fragment = new MovieDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable(ARG_MOVIE, movie);
+        args.putInt(ARG_MOVIE_ID, movieId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -36,10 +38,8 @@ public class MovieDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            movie = getArguments().getParcelable(ARG_MOVIE);
+            movieId = getArguments().getInt(ARG_MOVIE_ID);
         }
-
-
     }
 
     @Override
@@ -53,8 +53,7 @@ public class MovieDetailFragment extends Fragment {
 
         MovieGetter getter = new MovieGetter();
 
-        getter.getMovieById("movies","1", new MovieGetter.MovieGetterCallback(){
-
+        getter.getMovieById("movies", String.valueOf(movieId), new MovieGetter.MovieGetterCallback() {
             @Override
             public View onMovieReceived(Movie movie) {
                 TextView movieName = view.findViewById(R.id.movieName);
@@ -90,7 +89,7 @@ public class MovieDetailFragment extends Fragment {
                         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 
                         Bundle bundle = new Bundle();
-                        bundle.putParcelable("movieData",movie);
+                        bundle.putParcelable("movieData", movie);
                         seatChoosingFragment.setArguments(bundle);
 
                         transaction.replace(R.id.fragment_movie_detail, seatChoosingFragment);
@@ -98,9 +97,23 @@ public class MovieDetailFragment extends Fragment {
                         transaction.commit();
                     }
                 });
+                ImageButton bookMarkButton = view.findViewById(R.id.bookmarkIcon);
+                bookMarkButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SavedFragment savedFragment = new SavedFragment();
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("movieId",movieId);
+                        savedFragment.setArguments(bundle);
+
+                        transaction.replace(R.id.fragment_movie_detail, savedFragment);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                    }
+                });
                 return view;
-
             }
 
             @Override
@@ -110,6 +123,4 @@ public class MovieDetailFragment extends Fragment {
         });
         return view;
     }
-
-
 }

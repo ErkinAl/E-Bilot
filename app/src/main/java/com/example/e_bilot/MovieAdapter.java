@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import com.example.e_bilot.MovieGetter.MovieGetterImageCallback;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class MovieAdapter extends BaseAdapter {
@@ -46,10 +44,10 @@ public class MovieAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.fragment_movie_list_item, parent, false);
             holder = new ViewHolder();
-            holder.imageView = convertView.findViewById(R.id.movieImageView);
-            holder.textView = convertView.findViewById(R.id.movieNameTextView);
-            holder.imdbScoreTextView = convertView.findViewById(R.id.imdbScoreTextView);
-            holder.idGenre = convertView.findViewById(R.id.idGenre);
+            holder.imageView = convertView.findViewById(R.id.movieSavedImageView);
+            holder.textView = convertView.findViewById(R.id.movieSavedTextView);
+            holder.imdbScoreTextView = convertView.findViewById(R.id.imdbSavedScoreTextView);
+            holder.idGenre = convertView.findViewById(R.id.idSavedGenre);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
