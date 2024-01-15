@@ -17,9 +17,9 @@
         android:icon="@drawable/popcorn_24"/>
 
     <item
-        android:title="Settings"
+        android:title="Info"
         android:id="@+id/settings"
-        android:icon="@drawable/baseline_settings_24"/>
+        android:icon="@drawable/baseline_info_24"/>
 
     <item
         android:title="Profile"
