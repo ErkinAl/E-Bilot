@@ -1,73 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment"
     android:id="@+id/frame_layout_home">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ImageView
+        android:id="@+id/homePageImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_bg"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".MainActivity">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/home_bg"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:scaleType="centerCrop"/>
-
-        <TextView
-            android:id="@+id/textRecommendedMovies"
-            android:layout_width="212dp"
-            android:layout_height="24dp"
-            android:layout_marginBottom="8dp"
-            android:text="Recommended movies to watch:"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/buttonRecommended1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.201"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/recommendedMovie2"
-            android:layout_width="54dp"
-            android:layout_height="52dp"
-            android:layout_marginStart="8dp"
-            android:elevation="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/buttonRecommended3"
-            app:layout_constraintStart_toStartOf="@+id/buttonRecommended3"
-            app:layout_constraintTop_toBottomOf="@+id/buttonRecommended1"
-            app:layout_constraintVertical_bias="0.622"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <ImageView
-            android:id="@+id/recommendedMovie1"
-            android:layout_width="54dp"
-            android:layout_height="52dp"
-            android:layout_marginStart="8dp"
-            android:elevation="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/buttonRecommended1"
-            app:layout_constraintStart_toStartOf="@+id/buttonRecommended1"
-            app:layout_constraintTop_toTopOf="@+id/buttonRecommended1"
-            app:layout_constraintVertical_bias="0.515"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <ImageView
-            android:id="@+id/recommendedMovie4"
-            android:layout_width="54dp"
-            android:layout_height="52dp"
-            android:layout_marginStart="8dp"
-            android:elevation="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/buttonRecommended4"
-            app:layout_constraintStart_toStartOf="@+id/buttonRecommended4"
-            app:layout_constraintTop_toTopOf="@+id/buttonRecommended4"
-            app:layout_constraintVertical_bias="0.515"
-            tools:srcCompat="@tools:sample/avatars" />
 
         <ImageButton
             android:id="@+id/buttonAboutUs"
@@ -75,75 +26,123 @@
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_info_24"
-            tools:src="@tools:sample/backgrounds/scenic" />
+            tools:src="@tools:sample/backgrounds/scenic"
+            />
 
-        <ImageView
-            android:id="@+id/recommendedMovie3"
-            android:layout_width="54dp"
-            android:layout_height="52dp"
-            android:layout_marginStart="8dp"
-            android:elevation="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/buttonRecommended2"
-            app:layout_constraintStart_toStartOf="@+id/buttonRecommended2"
-            app:layout_constraintTop_toTopOf="@+id/buttonRecommended2"
-            app:layout_constraintVertical_bias="0.515"
-            tools:srcCompat="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/textRecommendedMovies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Recommended movies to watch:"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="300dp"
+            android:textColor="@color/white"/>
 
-        <Button
-            android:id="@+id/buttonRecommended1"
-            android:layout_width="150dp"
-            android:layout_height="85dp"
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="452dp"
-            android:layout_marginEnd="31dp"
-            android:layout_marginBottom="11dp"
-            app:cornerRadius="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonRecommended3"
-            app:layout_constraintEnd_toStartOf="@+id/buttonRecommended2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp">
 
-        <Button
-            android:id="@+id/buttonRecommended4"
-            android:layout_width="150dp"
-            android:layout_height="85dp"
-            android:layout_marginEnd="64dp"
-            android:layout_marginBottom="98dp"
-            app:cornerRadius="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/buttonRecommended3"
-            app:layout_constraintTop_toBottomOf="@+id/buttonRecommended2" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/buttonRecommended2"
-            android:layout_width="150dp"
-            android:layout_height="85dp"
-            android:layout_marginTop="452dp"
-            android:layout_marginEnd="64dp"
-            android:layout_marginBottom="11dp"
-            app:cornerRadius="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonRecommended4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/buttonRecommended1"
-            app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/recommendedMovie1"
+                    android:layout_width="78dp"
+                    android:scaleType="centerCrop"
+                    android:layout_height="78dp"
+                    android:layout_marginTop="3dp"/>
 
-        <Button
-            android:id="@+id/buttonRecommended3"
-            android:layout_width="150dp"
-            android:layout_height="85dp"
-            android:layout_marginStart="64dp"
-            android:layout_marginEnd="31dp"
-            android:layout_marginBottom="98dp"
-            app:cornerRadius="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/buttonRecommended4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonRecommended1" />
+                <Button
+                    android:id="@+id/buttonRecommended1"
+                    android:layout_width="95dp"
+                    android:scaleType="centerCrop"
+                    android:textSize="10dp"
+                    android:layout_height="85dp"
+                    android:backgroundTint="#800000"
+                    app:cornerRadius="0dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/recommendedMovie2"
+                    android:layout_width="78dp"
+                    android:scaleType="centerCrop"
+                    android:layout_height="78dp"
+                    android:layout_marginTop="3dp"/>
+
+                <Button
+                    android:id="@+id/buttonRecommended2"
+                    android:layout_width="95dp"
+                    android:layout_height="85dp"
+                    android:backgroundTint="#800000"
+                    android:textSize="9dp"
+                    app:cornerRadius="0dp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/recommendedMovie3"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="3dp"/>
+
+                <Button
+                    android:id="@+id/buttonRecommended3"
+                    android:layout_width="95dp"
+                    android:textSize="10dp"
+                    android:layout_height="85dp"
+                    android:backgroundTint="#800000"
+                    app:cornerRadius="0dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/recommendedMovie4"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp"
+                    android:layout_marginTop="3dp"
+                    android:scaleType="centerCrop"/>
+
+                <Button
+                    android:id="@+id/buttonRecommended4"
+                    android:layout_width="95dp"
+                    android:layout_height="85dp"
+                    android:backgroundTint="#800000"
+                    android:textSize="10dp"
+                    app:cornerRadius="0dp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>
