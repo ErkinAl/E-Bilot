@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new HomeFragment());
             }
             else if(itemId == SAVED_MOVIES_ID){
-                replaceFragment(new MovieDetailFragment());
+                replaceFragment(new SavedFragment());
             }
             else if(itemId == MOVIES_ID){
                 replaceFragment(new MovieList());

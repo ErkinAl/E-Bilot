@@ -4,28 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MovieList">
+    tools:context=".MovieList"
+    android:id="@+id/idMovieList">
 
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/general_bg"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/general_bg" />
 
-    <!-- TODO: Update blank fragment layout -->
-    <ListView
-        android:id="@+id/movieListView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:dividerHeight="25dp"
-        android:divider="@android:color/transparent"
-        android:headerDividersEnabled="false">
+        android:orientation="vertical">
 
-    </ListView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="91dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/ebilot_logo" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/movieListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="25dp"
+                android:headerDividersEnabled="false">
+
+            </ListView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- TODO: Update blank fragment layout -->
 
 </FrameLayout>
