@@ -3,8 +3,7 @@ plugins {
     id("com.google.gms.google-services")
 }
 
-android {
-    namespace = "com.example.e_bilot"
+android {    namespace = "com.example.e_bilot"
     compileSdk = 34
 
     defaultConfig {
