@@ -21,6 +21,7 @@ public class LoginFragment extends Fragment {
     private EditText editTextPassword;
     private Button loginButton;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser user;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -54,10 +55,16 @@ public class LoginFragment extends Fragment {
 
                 loginUser(email, password);
                 UserGetter userGetter = new UserGetter();
+                Bundle bundle = new Bundle();
+                HomeFragment homeFragment = new HomeFragment();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+
                 userGetter.getUserById(firebaseAuth.getCurrentUser().getUid(), new UserGetter.UserGetterCallback() {
                     @Override
                     public void onUserReceived(User user) {
                         Log.d("LoginFragment", user.toString());
+                        bundle.putParcelable("userData", user);
+                        homeFragment.setArguments(bundle);
                     }
 
                     @Override
@@ -65,6 +72,10 @@ public class LoginFragment extends Fragment {
                         Log.d("LoginFragment", errorMessage);
                     }
                 });
+
+                transaction.replace(R.id.fragment_login, homeFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
         return view;
@@ -74,15 +85,8 @@ public class LoginFragment extends Fragment {
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(requireActivity(), task -> {
                     if (task.isSuccessful()){
-                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        user = firebaseAuth.getCurrentUser();
                         Toast.makeText(getActivity().getApplicationContext(), user.getEmail() + " mailed user logged in.", Toast.LENGTH_SHORT).show();
-
-                        HomeFragment homeFragment = new HomeFragment();
-                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-
-                        transaction.replace(R.id.fragment_login, homeFragment);
-                        transaction.addToBackStack(null);
-                        transaction.commit();
                     } else {
                         Toast.makeText(requireContext(), "Can not logged in. Please check your informations", Toast.LENGTH_SHORT).show();
                     }
