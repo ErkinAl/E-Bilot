@@ -38,7 +38,7 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
 
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        /*FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         UserGetter userGetter = new UserGetter();
         userGetter.getUserById(firebaseAuth.getCurrentUser().getUid(), new UserGetter.UserGetterCallback() {
             @Override
@@ -56,7 +56,7 @@ public class ProfileFragment extends Fragment {
         TextView userEmailTextView = view.findViewById(R.id.profileEmail);
 
         userNameTextView.setText(currentUser.getName().toString() + " " + currentUser.getSurname().toString());
-        userEmailTextView.setText(currentUser.getEmail().toString());
+        userEmailTextView.setText(currentUser.getEmail().toString());*/
 
 
         Button logOutButton = view.findViewById(R.id.logOutButton);

@@ -1,5 +1,6 @@
 package com.example.e_bilot;
 
+import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
@@ -46,6 +47,10 @@ public class MovieDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_movie_detail, container, false);
 
+        ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Movie is loading..");
+        progressDialog.show();
+
         MovieGetter getter = new MovieGetter();
 
         getter.getMovieById("movies","1", new MovieGetter.MovieGetterCallback(){
@@ -62,6 +67,8 @@ public class MovieDetailFragment extends Fragment {
                 genres.setText(movie.getGenres());
                 imdbScore.setText(String.valueOf(movie.getImdbScore()));
                 description.setText(movie.getDescription());
+
+                progressDialog.dismiss();
 
                 getter.downloadImage(movie.getBannerPath(), new MovieGetter.MovieGetterImageCallback() {
                     @Override

@@ -20,7 +20,7 @@ import android.widget.Toast;
 import java.util.Arrays;
 
 public class SeatChoosingFragment extends Fragment {
-    private Movie selectedMovie;
+    public Movie selectedMovie;
     private EditText userInput;
 
     public SeatChoosingFragment() {
@@ -108,7 +108,7 @@ public class SeatChoosingFragment extends Fragment {
         return view;
     }
 
-    private boolean isSelectedSeatValid(String selectedSeats, Movie selectedMovie){
+    public boolean isSelectedSeatValid(String selectedSeats, Movie selectedMovie){
         String[] occupiedSeats = selectedMovie.getOccupiedSeats().split(",");
         String[] seats = selectedSeats.split(",");
         for (String occupiedSeat : occupiedSeats) {

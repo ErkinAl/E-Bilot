@@ -49,6 +49,7 @@
                     android:id="@+id/profileName"
                     android:textSize="24sp"
                     android:gravity="center"
+                    android:text="Feridun Akyüz"
                     android:layout_marginLeft="20dp"
                     android:textColor="@color/white"
                     android:textStyle="bold"/>
@@ -57,6 +58,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/profileEmail"
                     android:textSize="12sp"
+                    android:text="feridun_kofte@gmail.com"
                     android:gravity="center"
                     android:layout_marginLeft="20dp"
                     android:textColor="@color/white"

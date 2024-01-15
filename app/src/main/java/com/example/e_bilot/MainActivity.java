@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     final int MOVIES_ID = R.id.movies;
     final int SETTINGS_ID = R.id.settings;
     final int PROFILE_ID = R.id.profile;
-
+    FirebaseAuth firebaseAuth;
+    UserGetter userGetter;
     private User currentUser;
 
     @Override
@@ -40,40 +41,48 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new HomeFragment());
             }
             else if(itemId == SAVED_MOVIES_ID){
-                replaceFragment(new RegisterFragment());
+                replaceFragment(new MovieDetailFragment());
             }
             else if(itemId == MOVIES_ID){
                 replaceFragment(new MovieList());
             }
             else if(itemId == SETTINGS_ID){
-
+                replaceFragment(new AboutUs());
             }
             else if(itemId == PROFILE_ID){
-                UserGetter userGetter = new UserGetter();
-                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-                userGetter.getUserById(firebaseAuth.getCurrentUser().getUid(), new UserGetter.UserGetterCallback() {
-                    @Override
-                    public void onUserReceived(User user) {
-                        currentUser = user;
-                    }
-
-                    @Override
-                    public void onFailure(String errorMessage) {
-                        Log.e("MainActivity", errorMessage);
-                    }
-                });
-
-
+                /*
+                firebaseAuth = FirebaseAuth.getInstance();
+                userGetter = new UserGetter();
                 if (currentUser == null){
                     replaceFragment(new LoginFragment());
                     Toast.makeText(getApplicationContext(), "Please log in.", Toast.LENGTH_LONG).show();
                 } else{
-                    replaceFragment(new ProfileFragment());
-                }
-            }
+                    userGetter.getUserById(firebaseAuth.getCurrentUser().getUid(), new UserGetter.UserGetterCallback() {
+                        @Override
+                        public void onUserReceived(User user) {
+                            currentUser = user;
+                            Log.d("BBBBB", currentUser.toString());
+                        }
 
+                        @Override
+                        public void onFailure(String errorMessage) {
+                            Log.e("MainActivity", errorMessage);
+                        }
+                    });
+
+                    replaceFragment(new ProfileFragment());
+                }*/
+                replaceFragment(new ProfileFragment());
+            }
             return true;
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d("SIGN OUT", firebaseAuth.getCurrentUser().getUid() + " signed out");
+        firebaseAuth.signOut();
+        super.onDestroy();
     }
 
     private void replaceFragment(Fragment fragment){
