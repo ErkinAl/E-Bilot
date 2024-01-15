@@ -57,6 +57,22 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
+                reccomend1Button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        MovieDetailFragment movieDetailFragment = new MovieDetailFragment();
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("argMovieId", movie.getMovieId());
+                        movieDetailFragment.setArguments(bundle);
+
+                        transaction.replace(R.id.frame_layout_home, movieDetailFragment);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                    }
+                });
+
                 return null;
             }
 
@@ -81,6 +97,22 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onFailure(String errorMessage) {
                         Log.e("HomeFragment", errorMessage);
+                    }
+                });
+
+                reccomend2Button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        MovieDetailFragment movieDetailFragment = new MovieDetailFragment();
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("argMovieId", movie.getMovieId());
+                        movieDetailFragment.setArguments(bundle);
+
+                        transaction.replace(R.id.frame_layout_home, movieDetailFragment);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
                     }
                 });
 
@@ -111,6 +143,22 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
+                reccomend3Button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        MovieDetailFragment movieDetailFragment = new MovieDetailFragment();
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("argMovieId", movie.getMovieId());
+                        movieDetailFragment.setArguments(bundle);
+
+                        transaction.replace(R.id.frame_layout_home, movieDetailFragment);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                    }
+                });
+
                 return null;
             }
 
@@ -135,6 +183,22 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onFailure(String errorMessage) {
                         Log.e("HomeFragment", errorMessage);
+                    }
+                });
+
+                reccomend4Button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        MovieDetailFragment movieDetailFragment = new MovieDetailFragment();
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("argMovieId", movie.getMovieId());
+                        movieDetailFragment.setArguments(bundle);
+
+                        transaction.replace(R.id.frame_layout_home, movieDetailFragment);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
                     }
                 });
 
