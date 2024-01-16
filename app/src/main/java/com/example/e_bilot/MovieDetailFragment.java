@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MovieDetailFragment extends Fragment {
 
@@ -111,6 +112,7 @@ public class MovieDetailFragment extends Fragment {
                         transaction.replace(R.id.fragment_movie_detail, savedFragment);
                         transaction.addToBackStack(null);
                         transaction.commit();
+
                     }
                 });
                 return view;
