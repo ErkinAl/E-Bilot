@@ -2,6 +2,7 @@ package com.example.e_bilot;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.example.e_bilot.MovieGetter.MovieGetterImageCallback;
 
 import java.util.List;
 
+// ERKİN ALKAN
 public class MovieAdapter extends BaseAdapter {
     private List<Movie> movies;
     private LayoutInflater inflater;
@@ -22,6 +24,7 @@ public class MovieAdapter extends BaseAdapter {
         this.inflater = LayoutInflater.from(context);
     }
 
+    // ERKİN ALKAN
     @Override
     public int getCount() {
         return movies.size();
@@ -37,10 +40,12 @@ public class MovieAdapter extends BaseAdapter {
         return position;
     }
 
+    // ERKİN ALKAN
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
 
+        // This code part fills information of movie to view holder
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.fragment_movie_list_item, parent, false);
             holder = new ViewHolder();
@@ -58,7 +63,6 @@ public class MovieAdapter extends BaseAdapter {
         holder.imdbScoreTextView.setText(String.valueOf(movie.getImdbScore()));
         holder.idGenre.setText(String.valueOf(movie.getGenres()));
 
-        // Resmi yükle
         if (movie.getBannerPath() != null && !movie.getBannerPath().isEmpty()) {
             loadMovieImage(movie.getBannerPath(), holder.imageView);
         }
@@ -66,6 +70,7 @@ public class MovieAdapter extends BaseAdapter {
         return convertView;
     }
 
+    // ERKİN ALKAN
     private static class ViewHolder {
         ImageView imageView;
         TextView textView;
@@ -73,6 +78,8 @@ public class MovieAdapter extends BaseAdapter {
         TextView imdbScoreTextView;
     }
 
+    // ERKİN ALKAN
+    // This function loads image from firestore storage
     private void loadMovieImage(String path, ImageView imageView) {
         MovieGetter movieGetter = new MovieGetter();
         movieGetter.downloadImage(path, new MovieGetterImageCallback() {
@@ -83,7 +90,7 @@ public class MovieAdapter extends BaseAdapter {
 
             @Override
             public void onFailure(String errorMessage) {
-                // Hata durumunda buraya düşer
+                Log.e("MovieAdapter", errorMessage);
             }
         });
     }

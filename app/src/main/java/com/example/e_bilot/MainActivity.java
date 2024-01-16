@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.e_bilot.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
+// ERKİN ALKAN, DENİZ BİLGİN
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     UserGetter userGetter;
     private User currentUser;
 
+    // ERKİN ALKAN, DENİZ BİLGİN
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // This code part handles clicks bottom navigation menu
+        // If user clicks home icon, it means HomeFragment will be appear
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
@@ -50,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new AboutUs());
             }
             else if(itemId == PROFILE_ID){
+                // Login codes (because there are some bugs, I command it)
                 /*
                 firebaseAuth = FirebaseAuth.getInstance();
                 userGetter = new UserGetter();
@@ -78,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // DENİZ BİLGİN
+    // This function logs out the user when the application destroyed
     @Override
     protected void onDestroy() {
         Log.d("SIGN OUT", firebaseAuth.getCurrentUser().getUid() + " signed out");
@@ -85,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    // DENİZ BİLGİN
+    // This function handles travelling through fragments
     private void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

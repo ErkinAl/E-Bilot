@@ -12,18 +12,23 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
+// DENİZ BİLGİN
 public class UserGetter {
     FirebaseFirestore database;
 
+    // DENİZ BİLGİN
     public UserGetter() {
         database = FirebaseFirestore.getInstance();
     }
 
+    // DENİZ BİLGİN
     public interface UserGetterCallback{
         void onUserReceived(User user);
         void onFailure(String errorMessage);
     }
 
+    // DENİZ BİLGİN
+    // This user gets user information by user id from the firebase
     public void getUserById(String id, UserGetter.UserGetterCallback callback){
         database.collection("userInfos").get().addOnCompleteListener(task -> {
             for (QueryDocumentSnapshot document : task.getResult()){

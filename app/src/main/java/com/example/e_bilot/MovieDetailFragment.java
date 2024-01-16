@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+// ERKİN ALKAN, DENİZ BİLGİN
 public class MovieDetailFragment extends Fragment {
 
     private static final String ARG_MOVIE_ID = "argMovieId";
@@ -27,6 +28,7 @@ public class MovieDetailFragment extends Fragment {
         // Required empty public constructor
     }
 
+    // DENİZ BİLGİN, ERKİN ALKAN
     public static MovieDetailFragment newInstance(int movieId) {
         MovieDetailFragment fragment = new MovieDetailFragment();
         Bundle args = new Bundle();
@@ -35,6 +37,7 @@ public class MovieDetailFragment extends Fragment {
         return fragment;
     }
 
+    // ERKİN ALKAN
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +46,14 @@ public class MovieDetailFragment extends Fragment {
         }
     }
 
+    // DENİZ BİLGİN
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_movie_detail, container, false);
 
+        // DENİZ BİLGİN
+        // This code part uses thread subject, it show a loading screen to the screen while movie is loading
         ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Movie is loading..");
         progressDialog.show();
@@ -70,6 +76,7 @@ public class MovieDetailFragment extends Fragment {
 
                 progressDialog.dismiss();
 
+                // This function downloads image of the movie from firestore storage
                 getter.downloadImage(movie.getBannerPath(), new MovieGetter.MovieGetterImageCallback() {
                     @Override
                     public void onImageDownloaded(Bitmap bitmap) {
@@ -82,6 +89,7 @@ public class MovieDetailFragment extends Fragment {
                     }
                 });
 
+                // This function sends the data to seat choosing fragment and replaces the fragment
                 Button buyButton = view.findViewById(R.id.buyButtonMovieDetail);
                 buyButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -98,8 +106,12 @@ public class MovieDetailFragment extends Fragment {
                         transaction.commit();
                     }
                 });
+
+                // This code part implements movie saving process
                 ImageButton bookMarkButton = view.findViewById(R.id.bookmarkIcon);
                 bookMarkButton.setOnClickListener(new View.OnClickListener() {
+
+                    // ERKİN ALKAN, DENİZ BİLGİN
                     @Override
                     public void onClick(View v) {
                         SavedFragment savedFragment = new SavedFragment();

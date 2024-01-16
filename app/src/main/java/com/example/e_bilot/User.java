@@ -6,6 +6,8 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+// DENİZ BİLGİN, ERKİN ALKAN
+// This is the second fundamental class of the app
 public class User implements Parcelable {
     private String userId;
     private String name;
@@ -19,6 +21,7 @@ public class User implements Parcelable {
 
     }
 
+    // DENİZ BİLGİN, ERKİN ALKAN
     public User(Parcel in) {
         userId = in.readString();
         name = in.readString();
@@ -31,6 +34,7 @@ public class User implements Parcelable {
         }
     }
 
+    // DENİZ BİLGİN, ERKİN ALKAN
     @NonNull
     @Override
     public String toString() {
@@ -49,6 +53,7 @@ public class User implements Parcelable {
         }
     };
 
+    // DENİZ BİLGİN, ERKİN ALKAN
     public String getUserId() {
         return userId;
     }
@@ -105,11 +110,13 @@ public class User implements Parcelable {
         isMale = male;
     }
 
+    // DENİZ BİLGİN, ERKİN ALKAN
     @Override
     public int describeContents() {
         return 0;
     }
 
+    // DENİZ BİLGİN, ERKİN ALKAN
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
         dest.writeString(userId);

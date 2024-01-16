@@ -27,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
+// DENİZ BİLGİN, ERKİN ALKAN
 public class RegisterFragment extends Fragment {
 
     EditText email;
@@ -43,11 +44,12 @@ public class RegisterFragment extends Fragment {
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
 
-
+    // ERKİN ALKAN
     public RegisterFragment() {
         // Required empty public constructor
     }
 
+    // ERKİN ALKAN
     public static RegisterFragment newInstance(String param1, String param2) {
         RegisterFragment fragment = new RegisterFragment();
         Bundle args = new Bundle();
@@ -60,6 +62,7 @@ public class RegisterFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    // ERKİN ALKAN, DENİZ BİLGİN
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,6 +77,7 @@ public class RegisterFragment extends Fragment {
 
         Button registerConfirmButton = view.findViewById(R.id.buttonRegisterConfirm);
 
+        // This code part implements registering a user to the firebase
         registerConfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +94,8 @@ public class RegisterFragment extends Fragment {
         return view;
     }
 
+    // DENİZ BİLGİN
+    // This function handles all of the registration processes
     private void performRegistration(String emailS, String passwordS, String nameS, String surnameS, int ageI, boolean isMaleB){
         firebaseAuth.createUserWithEmailAndPassword(emailS, passwordS)
                 .addOnCompleteListener(requireActivity(), task -> {
@@ -106,6 +112,8 @@ public class RegisterFragment extends Fragment {
                 });
     }
 
+    // ERKİN ALKAN, DENİZ BİLGİN
+    // This function adds a user to the firebase firestore
     private void addUserToFirestore(String userId, String email, String password, String name, String surname, int age, boolean isMale) {
         Map<String, Object> user = new HashMap<>();
         user.put("userId", userId);
@@ -129,6 +137,8 @@ public class RegisterFragment extends Fragment {
         });
     }
 
+    // DENİZ BİLGİN
+    // This function logs in the user after registration
     private void loginUserFromRegisterFragment(String email, String password){
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(requireActivity(), task -> {

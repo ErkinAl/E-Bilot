@@ -14,12 +14,15 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+// DENİZ BİLGİN
 public class ProfileFragment extends Fragment {
     private User currentUser;
 
     public ProfileFragment() {
         // Required empty public constructor
     }
+
+    // DENİZ BİLGİN
     public static ProfileFragment newInstance(String param1, String param2) {
         ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
@@ -32,11 +35,13 @@ public class ProfileFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    // DENİZ BİLGİN
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        // This code part implements auth process (Because there are some bugs, we could not add the auth process to the app)
 
         /*FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         UserGetter userGetter = new UserGetter();
@@ -59,6 +64,7 @@ public class ProfileFragment extends Fragment {
         userEmailTextView.setText(currentUser.getEmail().toString());*/
 
 
+        // This function handles logging out when button is clicked
         Button logOutButton = view.findViewById(R.id.logOutButton);
         logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -23,6 +23,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
+// DENİZ BİLGİN
 public class MovieGetter {
     FirebaseFirestore database;
     FirebaseStorage storage;
@@ -31,21 +32,28 @@ public class MovieGetter {
         storage = FirebaseStorage.getInstance();
     }
 
+    // DENİZ BİLGİN
+    // This interface determines the rules about move getting
     public interface MovieGetterCallback{
         View onMovieReceived(Movie movie);
         void onFailure(String errorMessage);
     }
 
+    // DENİZ BİLGİN
+    // This interface determines the rules of the image dowloading of movie
     public interface MovieGetterImageCallback{
         void onImageDownloaded(Bitmap bitmap);
         void onFailure(String errorMessage);
     }
 
+    // DENİZ BİLGİN
     public interface MoviesGetterCallback{
         void onMoviesReceived(Movie[] movies);
         void onFailure(String errorMessage);
     }
 
+    // DENİZ BİLGİN
+    // This function gets movie by id from the firebase firestore
     public void getMovieById(String document, String id, MovieGetterCallback callback){
         DocumentReference documentReference = database.collection(document).document(id);
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -67,6 +75,8 @@ public class MovieGetter {
         });
     }
 
+    // DENİZ BİLGİN
+    // This function gets all of the movies from firebase firestore
     public void getAllMovies(String document, MoviesGetterCallback callback){
         CollectionReference collectionReference = database.collection(document);
         collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -88,6 +98,8 @@ public class MovieGetter {
     }
 
 
+    // DENİZ BİLGİN
+    // This function downloads an image from firebase storage by image path
     public void downloadImage(String path, MovieGetterImageCallback callback){
         StorageReference ref = storage.getReference(path);
         ref.getBytes(8*1024*1024).addOnSuccessListener(new OnSuccessListener<byte[]>() {
@@ -106,6 +118,8 @@ public class MovieGetter {
         });
     }
 
+    // DENİZ BİLGİN
+    // This function updates available seats when user buys a ticket
     public void updateOccupiedSeats(String newSeats, int movieId){
         DocumentReference ref = database.collection("movies").document(String.valueOf(movieId));
         ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

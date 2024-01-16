@@ -18,6 +18,7 @@ public class ExampleUnitTest {
         assertEquals(4, 2 + 2);
     }
 
+    // DENİZ BİLGİN
     @Test
     public void isSeatValidTest(){
         SeatChoosingFragment seatChoosingFragment = new SeatChoosingFragment();

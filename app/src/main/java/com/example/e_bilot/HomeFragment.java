@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+// ERKİN ALKAN, DENİZ BİLGİN
 public class HomeFragment extends Fragment {
 
     public HomeFragment() {
@@ -27,17 +28,21 @@ public class HomeFragment extends Fragment {
         return fragment;
     }
 
+    // ERKİN ALKAN
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    // ERKİN ALKAN, DENİZ BİLGİN
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         MovieGetter movieGetter = new MovieGetter();
+
+        // This code adds a recommended movie to one of the card that inside in home fragment
         movieGetter.getMovieById("movies", "1", new MovieGetter.MovieGetterCallback() {
             @Override
             public View onMovieReceived(Movie movie) {
@@ -81,6 +86,8 @@ public class HomeFragment extends Fragment {
                 Log.e("HomeFragment", errorMessage);
             }
         });
+
+        // This code adds a recommended movie to one of the card that inside in home fragment
         movieGetter.getMovieById("movies", "2", new MovieGetter.MovieGetterCallback() {
             @Override
             public View onMovieReceived(Movie movie) {
@@ -124,6 +131,8 @@ public class HomeFragment extends Fragment {
                 Log.e("HomeFragment", errorMessage);
             }
         });
+
+        // This code adds a recommended movie to one of the card that inside in home fragment
         movieGetter.getMovieById("movies", "3", new MovieGetter.MovieGetterCallback() {
             @Override
             public View onMovieReceived(Movie movie) {
@@ -167,6 +176,8 @@ public class HomeFragment extends Fragment {
                 Log.e("HomeFragment", errorMessage);
             }
         });
+
+        // This code adds a recommended movie to one of the card that inside in home fragment
         movieGetter.getMovieById("movies", "4", new MovieGetter.MovieGetterCallback() {
             @Override
             public View onMovieReceived(Movie movie) {
@@ -211,6 +222,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        // About us button implementation, it replaces another fragment when clicked it
         ImageButton buttonAboutUs = view.findViewById(R.id.buttonAboutUs);
         buttonAboutUs.setOnClickListener(new View.OnClickListener() {
             @Override

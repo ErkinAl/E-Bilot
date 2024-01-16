@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import java.util.Arrays;
 
+// DENİZ BİLGİN
 public class SeatChoosingFragment extends Fragment {
     public Movie selectedMovie;
     private EditText userInput;
@@ -26,6 +27,8 @@ public class SeatChoosingFragment extends Fragment {
     public SeatChoosingFragment() {
         // Required empty public constructor
     }
+
+    // DENİZ BİLGİN
     public static SeatChoosingFragment newInstance(Movie movie) {
         SeatChoosingFragment fragment = new SeatChoosingFragment();
         Bundle args = new Bundle();
@@ -39,11 +42,13 @@ public class SeatChoosingFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    // DENİZ BİLGİN
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_seat_choosing, container, false);
 
+        // This code part catchs the information that stored in bundle
         Bundle bundle = getArguments();
         if (bundle != null){
             selectedMovie = bundle.getParcelable("movieData");
@@ -56,6 +61,8 @@ public class SeatChoosingFragment extends Fragment {
         String[] rowNames = new String[]{"A","B","C","D","E","F","G","H"};
         TableLayout tableLayout = view.findViewById(R.id.seatsTable);
 
+        // DENİZ BİLGİN
+        // This code part fills the occupied seats
         for (String seat : occupiedSeats) {
             char row = seat.charAt(0);
             int column = Integer.parseInt(seat.substring(1));
@@ -76,6 +83,7 @@ public class SeatChoosingFragment extends Fragment {
             }
         }
 
+        // DENİZ BİLGİN
         Button nextButton = view.findViewById(R.id.seatChoosingButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +116,7 @@ public class SeatChoosingFragment extends Fragment {
         return view;
     }
 
+    // DENİZ BİLGİN
     public boolean isSelectedSeatValid(String selectedSeats, Movie selectedMovie){
         String[] occupiedSeats = selectedMovie.getOccupiedSeats().split(",");
         String[] seats = selectedSeats.split(",");

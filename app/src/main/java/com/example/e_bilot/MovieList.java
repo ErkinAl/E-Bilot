@@ -1,6 +1,7 @@
 package com.example.e_bilot;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.example.e_bilot.MovieGetter.MoviesGetterCallback;
 import java.util.Arrays;
 import java.util.List;
 
+// ERKİN ALKAN
 public class MovieList extends Fragment {
     ListView listView;
     MovieAdapter adapter;
@@ -25,22 +27,20 @@ public class MovieList extends Fragment {
     public MovieList() {
     }
 
+    // ERKİN ALKAN
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Firebase'den filmleri getir ve listeyi güncelle
         MovieGetter movieGetter = new MovieGetter();
         movieGetter.getAllMovies("movies", new MoviesGetterCallback() {
             @Override
             public void onMoviesReceived(Movie[] movies) {
                 movieData = movies;
 
-                // Verileri aldıktan sonra adapter'ı oluştur ve ListView'a set et
                 if (getActivity() != null) {
-                    List<Movie> movieList = Arrays.asList(movieData); // Movie[]'yi List<Movie>'ye çevir
+                    List<Movie> movieList = Arrays.asList(movieData);
                     adapter = new MovieAdapter(getActivity(), movieList);
 
-                    // ListView ve adapter null değilse set et
                     if (listView != null && adapter != null) {
                         listView.setAdapter(adapter);
                     }
@@ -49,24 +49,24 @@ public class MovieList extends Fragment {
 
             @Override
             public void onFailure(String errorMessage) {
-                // Hata
+                Log.e("MovieList", errorMessage);
             }
         });
     }
 
+    // ERKİN ALKAN
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_movie_list, container, false);
 
+        // This code part implements clicking a movie from the list then replaces the fragment to movie detail fragment
         listView = view.findViewById(R.id.movieListView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Tıklanan filmin ID'sini al
                 if (adapter != null && movieData != null && position < movieData.length) {
                     int selectedMovieId = movieData[position].getMovieId();
 
-                    // MovieDetailFragment'ı başlat ve tıklanan filmin ID'sini ileterek göster
                     showMovieDetails(selectedMovieId);
                 }
             }
@@ -75,6 +75,8 @@ public class MovieList extends Fragment {
         return view;
     }
 
+    // ERKİN ALKAN
+    // This code part handles routing to movie detail fragment by movie id
     private void showMovieDetails(int movieId) {
         MovieDetailFragment movieDetailFragment = MovieDetailFragment.newInstance(movieId);
         MovieDetailFragment currentFragment = MovieDetailFragment.newInstance(R.id.idMovieList);

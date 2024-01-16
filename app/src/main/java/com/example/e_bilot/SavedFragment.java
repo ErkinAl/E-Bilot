@@ -1,7 +1,4 @@
 package com.example.e_bilot;
-
-// SavedFragment.java
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -24,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+// ERKİN ALKAN
 public class SavedFragment extends Fragment {
 
     private int movieId;
@@ -32,11 +30,13 @@ public class SavedFragment extends Fragment {
         // Required empty public constructor
     }
 
+    // ERKİN ALKAN
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_saved_item, container, false);
 
+        // This code part catchs the information that stored in bundle
         Bundle bundle = getArguments();
         if (bundle != null){
             movieId = bundle.getInt("movieId");
@@ -46,6 +46,8 @@ public class SavedFragment extends Fragment {
 
         MovieGetter getter = new MovieGetter();
         getter.getMovieById("movies", String.valueOf(movieId), new MovieGetter.MovieGetterCallback() {
+
+            // ERKİN ALKAN
             @Override
             public View onMovieReceived(Movie movie) {
                 TextView movieName = view.findViewById(R.id.movieSavedTextView);
@@ -56,6 +58,8 @@ public class SavedFragment extends Fragment {
                 movieName.setText(movie.getName());
                 genres.setText(movie.getGenres());
                 imdbScore.setText(String.valueOf(movie.getImdbScore()));
+
+                // This code part downloads the banner image of the movie
                 getter.downloadImage(movie.getBannerPath(), new MovieGetter.MovieGetterImageCallback() {
                     @Override
                     public void onImageDownloaded(Bitmap bitmap) {
@@ -70,7 +74,7 @@ public class SavedFragment extends Fragment {
                 return view;
             }
 
-
+            // ERKİN ALKAN
             @Override
             public void onFailure(String errorMessage) {
 

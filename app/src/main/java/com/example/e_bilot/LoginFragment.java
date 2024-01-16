@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+// ERKİN ALKAN, DENİZ BİLGİN
 public class LoginFragment extends Fragment {
     private EditText editTextEmail;
     private EditText editTextPassword;
@@ -23,6 +24,7 @@ public class LoginFragment extends Fragment {
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user;
 
+    // ERKİN ALKAN
     public LoginFragment() {
         // Required empty public constructor
     }
@@ -33,11 +35,13 @@ public class LoginFragment extends Fragment {
         return fragment;
     }
 
+    // ERKİN ALKAN
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    // ERKİN ALKAN, DENİZ BİLGİN
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,6 +51,7 @@ public class LoginFragment extends Fragment {
         editTextPassword = view.findViewById(R.id.loginPassword);
         loginButton = view.findViewById(R.id.buttonLoginConfirm);
 
+        // This code part handles login event
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +86,8 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
+    // DENİZ BİLGİN
+    // This function communicates between users database and code, then logs in
     private void loginUser(String email, String password){
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(requireActivity(), task -> {

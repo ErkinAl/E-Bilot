@@ -5,6 +5,8 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+// DENİZ BİLGİN
+// This class is fundamental movie class of the algorithm
 public class Movie implements Parcelable {
     private int movieId;
     private String name;
@@ -19,6 +21,7 @@ public class Movie implements Parcelable {
 
     }
 
+    // DENİZ BİLGİN
     public Movie(Parcel in) {
         movieId = in.readInt();
         name = in.readString();
@@ -29,6 +32,7 @@ public class Movie implements Parcelable {
         occupiedSeats = in.readString();
     }
 
+    // DENİZ BİLGİN
     @NonNull
     @Override
     public String toString() {
@@ -108,6 +112,7 @@ public class Movie implements Parcelable {
         return 0;
     }
 
+    // DENİZ BİLGİN
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
         dest.writeInt(movieId);

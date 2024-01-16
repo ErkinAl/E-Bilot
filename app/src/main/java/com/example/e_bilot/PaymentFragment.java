@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+// DENİZ BİLGİN
 public class PaymentFragment extends Fragment {
     private Movie selectedMovie;
     private String[] selectedSeats;
@@ -38,6 +39,8 @@ public class PaymentFragment extends Fragment {
     public PaymentFragment() {
         // Required empty public constructor
     }
+
+    // DENİZ BİLGİN
     public static PaymentFragment newInstance(Movie movie) {
         PaymentFragment fragment = new PaymentFragment();
         Bundle args = new Bundle();
@@ -51,11 +54,13 @@ public class PaymentFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    // DENİZ BİLGİN
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_payment, container, false);
 
+        // This code part handles catching info from the bundle
         Bundle bundle = getArguments();
         if (bundle != null){
             selectedMovie = bundle.getParcelable("movieData");
@@ -91,6 +96,7 @@ public class PaymentFragment extends Fragment {
                 reservation.put("selectedSeats", bundle.getString("selectedSeats"));
                 reservation.put("userId",1);
 
+                // This code part implements adding reservation to the firebase firestore
                 reservationsReference.add(reservation).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
@@ -105,6 +111,7 @@ public class PaymentFragment extends Fragment {
                     }
                 });
 
+                // This part implements replacing fragment to the movie detail fragment when buying ticket process is successful
                 MovieGetter movieGetter = new MovieGetter();
                 movieGetter.updateOccupiedSeats(bundle.getString("selectedSeats"), selectedMovie.getMovieId());
 
@@ -119,6 +126,8 @@ public class PaymentFragment extends Fragment {
         return view;
     }
 
+    // DENİZ BİLGİN
+    // This function joins selectedSeats variable as a string
     private String joinSelectedSeats(String[] selectedSeats){
         String result = "";
         for (String seat : selectedSeats) {
@@ -128,6 +137,8 @@ public class PaymentFragment extends Fragment {
         return result;
     }
 
+    // DENİZ BİLGİN
+    // This function handles showing a toast message to the screen
     private void showToastMessage(String message){
         Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
